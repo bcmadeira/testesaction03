@@ -6,7 +6,9 @@ jobs:
   show-info:
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrar data e hora
-        run: echo "Data e hora:$(date)"
-      - name: Mostrar usuário
-        run: echo "Usuário do push:${{ github.actor }}"
+      - name: Mostrar data e hora (Brasil)
+        run: |
+          export TZ="America/Sao_Paulo"
+          echo "Data e hora (Brasil): $(date)"
+      - name: Mostrar usuário do push
+        run: echo "Usuário do push: ${{ github.actor }}"
