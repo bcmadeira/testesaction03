@@ -1,0 +1,20 @@
+name: Resumo Completo
+
+on: [push]
+
+jobs:
+  resumo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Data e Usuário
+        run: |
+          echo "Data: $(date)"
+          echo "Usuário: ${{ github.actor }}"
+
+      - name: Contagem de arquivos
+        run: |
+          echo "HTML: $(find . -name '*.html' | wc -l)"
+          echo "CSS: $(find . -name '*.css' | wc -l)"
+          echo "JS: $(find . -name '*.js' | wc -l)"
