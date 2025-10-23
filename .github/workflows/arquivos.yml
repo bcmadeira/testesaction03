@@ -1,0 +1,21 @@
+name: Gerenciar Arquivos
+
+on: [push]
+
+jobs:
+  arquivos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Listar arquivos
+        run: ls -l
+
+      - name: Contar arquivos HTML
+        run: |
+          echo "Total de arquivos HTML: $(find . -name '*.html' | wc -l)"
+
+      - name: Criar arquivo README
+        run: |
+          echo "Arquivo criado automaticamente pelo GitHub Actions" > novo_readme.txt
