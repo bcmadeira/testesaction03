@@ -1,0 +1,12 @@
+name: Data, Hora e Usuário
+
+on: [push]
+
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar data e hora
+        run: echo "Data e hora:$(date)"
+      - name: Mostrar usuário
+        run: echo "Usuário do push:${{ github.actor }}"
