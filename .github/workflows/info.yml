@@ -13,4 +13,4 @@ jobs:
         run: 'echo "Data e hora (Brasília): $(date "+%d/%m/%Y %H:%M:%S")"'
 
       - name: Mostrar usuário
-        run: echo "Usuário do push: ${{ github.actor }}"
+        run: echo "Usuário do push:" ${{ github.actor }}
