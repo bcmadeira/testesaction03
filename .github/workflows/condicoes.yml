@@ -1,0 +1,29 @@
+name: Condições
+
+on: [push]
+
+jobs:
+  condicoes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executar apenas à noite
+        if: ${{ startsWith(github.event.head_commit.timestamp, '2025-') && (contains(runner.os, 'Linux')) }}
+        run: echo "Rodando à noite (exemplo de condição)"
+
+      - name: Executar apenas aos sábados
+        run: |
+          if [ "$(date +%u)" -eq 6 ]; then
+            echo "Hoje é sábado!"
+          else
+            echo "Hoje não é sábado!"
+          fi
+
+      - name: Verificar arquivos >100KB
+        run: |
+          arquivos=$(find . -type f -size +100k)
+          if [ -n "$arquivos" ]; then
+            echo "⚠️ Arquivos maiores que 100KB encontrados:"
+            echo "$arquivos"
+          else
+            echo "Nenhum arquivo grande encontrado."
+          fi
