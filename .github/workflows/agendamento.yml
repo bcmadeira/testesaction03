@@ -1,0 +1,13 @@
+name: Agendamento Meia-Noite
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  
+
+jobs:
+  contar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Contar arquivos no repositório
+        run: echo "Total de arquivos:$(find . -type f | wc -l)"
