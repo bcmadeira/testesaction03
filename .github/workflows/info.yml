@@ -10,7 +10,7 @@ jobs:
         run: sudo timedatectl set-timezone America/Sao_Paulo
 
       - name: Mostrar data e hora
-        run: echo "Data e hora (Brasília): $(date '+%d/%m/%Y %H:%M:%S')"
+        run: 'echo "Data e hora (Brasília): $(date "+%d/%m/%Y %H:%M:%S")"'
 
       - name: Mostrar usuário
         run: echo "Usuário do push: ${{ github.actor }}"
